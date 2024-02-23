@@ -81,7 +81,9 @@ def main():
     try:
         bounty_details = scrape_bounties(driver)
         if bounty_details:
-            webhook_url = 'https://discord.com/api/webhooks/1208452918156460073/YiNa5U_WdDdInOIVe9Q8SiowwAHpR_kHZ5mYySWVldcm9BybeUXd9eqLhZD-BpAfpLFt'
+            webhook_url = os.getenv('webhook_url')
+            if not webhook_url:
+                raise EnvironmentError("The webhook_url environment variable is not set.")
             post_to_discord(bounty_details, webhook_url)
         else:
             print("No bounty descriptions found.")
