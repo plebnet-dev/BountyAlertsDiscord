@@ -1,3 +1,4 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -71,7 +72,9 @@ def post_to_discord(bounty_details, webhook_url):
             print(f"Failed to post to Discord: {response.status_code}")
 
 def main():
-    chromedriver_path = '/Users/tobiasmele/Code_Projects/6_git/plebnet.dev/webscraping/chromedriver-max-x64/chromedriver-mac-x64'
+    chromedriver_path = os.getenv('CHROMEDRIVER_PATH')
+    if not chromedriver_path:
+        raise EnvironmentError("The CHROMEDRIVER_PATH environment variable is not set.") 
     service = Service(executable_path=chromedriver_path)
     driver = webdriver.Chrome(service=service)
 
