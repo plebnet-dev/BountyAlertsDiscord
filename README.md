@@ -11,7 +11,7 @@ BountyAlertsDiscord is a Python-based tool designed to automate the notification
 
 ## Requirements
 
-- Python 3.x (Any version typically) 
+- Python 3.x (Any version typically)
 - Requests library
 
 ## Setup Instructions
@@ -57,10 +57,9 @@ Ensure that the `DISCORD_WEBHOOK_URL` environment variable is correctly set in y
 
 We welcome contributions to BountyAlertsDiscord! If you have suggestions for improvement or want to contribute code, please feel free to fork the repository, make your changes, and submit a pull request.
 
-
 ## Directory Structure
 
-```plaintext
+```
 BountyAlertsDiscord/
 ├── LICENSE
 ├── README.md
