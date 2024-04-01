@@ -2,7 +2,7 @@ name: Run Python script every 24 hours
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # runs every day at midnight
+    - cron: '0 0 * * *'  # runs every day at midnight
 
 jobs:
   run_script:
