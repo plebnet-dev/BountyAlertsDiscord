@@ -12,6 +12,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: setup node version
+      uses: actions/setup-node@v1
+      with:
+        node-version: 18.x
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -27,6 +32,8 @@ jobs:
         DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       run: |
         python sphinx_webscrape.py
+        git config user.name github-actions
+        git config user.email github-actions@github.com
         git add .
-        git commit -m "updated last run"
+        git commit -m "updated last run time"
         git push
