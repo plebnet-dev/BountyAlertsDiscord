@@ -7,15 +7,15 @@ on:
 jobs:
   run_script:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # Use the Python version you need
+        python-version: '3.9'  # Use the Python version you need
 
     - name: Install dependencies
       run: |
@@ -25,4 +25,8 @@ jobs:
     - name: Run Python script
       env:
         DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-      run: python your_script.py
+      run: |
+        python sphinx_webscrape.py
+        git add .
+        git commit -m "updated last run"
+        git push
