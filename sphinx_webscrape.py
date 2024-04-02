@@ -74,9 +74,10 @@ def main():
         if not webhook_url:
             raise EnvironmentError("The DISCORD_WEBHOOK_URL environment variable is not set.")
         post_to_discord(bounty_details, webhook_url)
-        write_last_run_timestamp()
     else:
         print("No new unpaid bounties found.")
+    write_last_run_timestamp()
+
 
 if __name__ == "__main__":
     main()
