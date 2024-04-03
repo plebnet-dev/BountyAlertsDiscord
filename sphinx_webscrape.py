@@ -22,7 +22,7 @@ def write_last_run_timestamp():
         file.write(new_time)
 
 def scrape_bounties(last_run_timestamp):
-    url = "https://community.sphinx.chat/gobounties/all?limit=100&sortBy=created&search=&page=1&resetPage=true&Open=false&Assigned=false&Paid=false&languages="
+    url = "https://community.sphinx.chat/gobounties/all?limit=100&sortBy=created&search=&page=1&resetPage=true&Open=true&Assigned=false&Paid=false&languages="
     response = requests.get(url)
 
     bounty_details = []
